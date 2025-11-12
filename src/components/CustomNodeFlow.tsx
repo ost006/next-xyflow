@@ -6,18 +6,18 @@ import {
   applyNodeChanges,
   applyEdgeChanges,
   addEdge,
-  Node,
-  Edge,
-  NodeChange,
-  EdgeChange,
-  Connection,
-  NodeTypes,
-  OnNodesChange,
-  OnEdgesChange,
-  OnConnect,
   Handle,
   Position,
-  NodeProps,
+  type Node,
+  type Edge,
+  type NodeChange,
+  type EdgeChange,
+  type Connection,
+  type NodeTypes,
+  type OnNodesChange,
+  type OnEdgesChange,
+  type OnConnect,
+  type NodeProps,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
@@ -25,7 +25,7 @@ function CustomNode({ data }: NodeProps) {
   return (
     <div className="px-4 py-2 shadow-lg rounded-lg bg-white border-2 border-blue-500">
       <Handle type="target" position={Position.Top} className="w-3 h-3" />
-      
+
       <div className="flex flex-col gap-2">
         <div className="font-bold text-lg">{data.label}</div>
         {data.description && (
@@ -46,7 +46,7 @@ function ProcessNode({ data }: NodeProps) {
   return (
     <div className="px-6 py-3 shadow-lg rounded-md bg-gradient-to-r from-purple-500 to-pink-500 text-white">
       <Handle type="target" position={Position.Left} className="w-3 h-3" />
-      
+
       <div className="flex items-center gap-2">
         <span className="text-xl">⚙️</span>
         <div className="font-semibold">{data.label}</div>
@@ -71,9 +71,9 @@ const initialNodes: Node[] = [
     id: '1',
     type: 'custom',
     position: { x: 250, y: 50 },
-    data: { 
+    data: {
       label: 'Start Node',
-      description: 'This is a custom node'
+      description: 'This is a custom node',
     },
   },
   {
@@ -92,9 +92,9 @@ const initialNodes: Node[] = [
     id: '4',
     type: 'custom',
     position: { x: 250, y: 350 },
-    data: { 
+    data: {
       label: 'End Node',
-      description: 'Final destination'
+      description: 'Final destination',
     },
   },
 ];
@@ -113,18 +113,18 @@ export default function CustomNodeFlow() {
   const onNodesChange: OnNodesChange = useCallback(
     (changes: NodeChange[]) =>
       setNodes((nds) => applyNodeChanges(changes, nds)),
-    []
+    [],
   );
 
   const onEdgesChange: OnEdgesChange = useCallback(
     (changes: EdgeChange[]) =>
       setEdges((eds) => applyEdgeChanges(changes, eds)),
-    []
+    [],
   );
 
   const onConnect: OnConnect = useCallback(
     (params: Connection) => setEdges((eds) => addEdge(params, eds)),
-    []
+    [],
   );
 
   return (
@@ -141,4 +141,3 @@ export default function CustomNodeFlow() {
     </div>
   );
 }
-

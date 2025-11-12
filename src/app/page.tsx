@@ -7,7 +7,7 @@ export default function Home() {
         <h1 className="text-5xl font-bold text-center bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
           React Flow Practice
         </h1>
-        
+
         <p className="text-lg text-center text-gray-700 dark:text-gray-300">
           Next.js + TypeScript + React Flow diagram library practice project
         </p>

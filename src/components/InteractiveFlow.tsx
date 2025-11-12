@@ -6,18 +6,18 @@ import {
   applyNodeChanges,
   applyEdgeChanges,
   addEdge,
-  Node,
-  Edge,
-  NodeChange,
-  EdgeChange,
-  Connection,
-  OnNodesChange,
-  OnEdgesChange,
-  OnConnect,
   Controls,
   MiniMap,
   Background,
   BackgroundVariant,
+  type Node,
+  type Edge,
+  type NodeChange,
+  type EdgeChange,
+  type Connection,
+  type OnNodesChange,
+  type OnEdgesChange,
+  type OnConnect,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
@@ -43,18 +43,18 @@ const initialNodes: Node[] = [
 ];
 
 const initialEdges: Edge[] = [
-  { 
-    id: 'e1-2', 
-    source: '1', 
-    target: '2', 
+  {
+    id: 'e1-2',
+    source: '1',
+    target: '2',
     animated: true,
-    style: { stroke: '#6EE7B7' }
+    style: { stroke: '#6EE7B7' },
   },
-  { 
-    id: 'e2-3', 
-    source: '2', 
+  {
+    id: 'e2-3',
+    source: '2',
     target: '3',
-    style: { stroke: '#93C5FD' }
+    style: { stroke: '#93C5FD' },
   },
 ];
 
@@ -65,13 +65,13 @@ export default function InteractiveFlow() {
   const onNodesChange: OnNodesChange = useCallback(
     (changes: NodeChange[]) =>
       setNodes((nds) => applyNodeChanges(changes, nds)),
-    []
+    [],
   );
 
   const onEdgesChange: OnEdgesChange = useCallback(
     (changes: EdgeChange[]) =>
       setEdges((eds) => applyEdgeChanges(changes, eds)),
-    []
+    [],
   );
 
   const onConnect: OnConnect = useCallback(
@@ -82,7 +82,7 @@ export default function InteractiveFlow() {
       };
       setEdges((eds) => addEdge(newEdge, eds));
     },
-    []
+    [],
   );
 
   const addNode = () => {
@@ -147,4 +147,3 @@ export default function InteractiveFlow() {
     </div>
   );
 }
-

@@ -6,15 +6,15 @@ import {
   applyNodeChanges,
   applyEdgeChanges,
   addEdge,
-  Node,
-  Edge,
-  NodeChange,
-  EdgeChange,
-  Connection,
-  FitViewOptions,
-  OnNodesChange,
-  OnEdgesChange,
-  OnConnect,
+  type Node,
+  type Edge,
+  type NodeChange,
+  type EdgeChange,
+  type Connection,
+  type FitViewOptions,
+  type OnNodesChange,
+  type OnEdgesChange,
+  type OnConnect,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
@@ -52,18 +52,18 @@ export default function BasicFlow() {
   const onNodesChange: OnNodesChange = useCallback(
     (changes: NodeChange[]) =>
       setNodes((nds) => applyNodeChanges(changes, nds)),
-    []
+    [],
   );
 
   const onEdgesChange: OnEdgesChange = useCallback(
     (changes: EdgeChange[]) =>
       setEdges((eds) => applyEdgeChanges(changes, eds)),
-    []
+    [],
   );
 
   const onConnect: OnConnect = useCallback(
     (params: Connection) => setEdges((eds) => addEdge(params, eds)),
-    []
+    [],
   );
 
   return (
@@ -80,4 +80,3 @@ export default function BasicFlow() {
     </div>
   );
 }
-
