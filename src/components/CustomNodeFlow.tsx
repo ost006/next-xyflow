@@ -17,11 +17,10 @@ import {
   type OnNodesChange,
   type OnEdgesChange,
   type OnConnect,
-  type NodeProps,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
-function CustomNode({ data }: NodeProps) {
+function CustomNode({ data }: { data: { label: string; description?: string } }) {
   return (
     <div className="px-4 py-2 shadow-lg rounded-lg bg-white border-2 border-blue-500">
       <Handle type="target" position={Position.Top} className="w-3 h-3" />
@@ -42,7 +41,7 @@ function CustomNode({ data }: NodeProps) {
   );
 }
 
-function ProcessNode({ data }: NodeProps) {
+function ProcessNode({ data }: { data: { label: string } }) {
   return (
     <div className="px-6 py-3 shadow-lg rounded-md bg-gradient-to-r from-purple-500 to-pink-500 text-white">
       <Handle type="target" position={Position.Left} className="w-3 h-3" />
